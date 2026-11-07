@@ -1,0 +1,75 @@
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.ref-card {
+  background: var(--surface-base);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: .4rem;
+  border: 1px solid var(--rule);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .6s ease, transform .6s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.ref-card.visible { opacity: 1; transform: none; }
+
+.ref-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 28px rgba(0,0,0,.1);
+}
+
+.ref-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: .5rem;
+  letter-spacing: .02em;
+}
+
+.ref-name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.ref-role {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: .03em;
+}
+
+.ref-org {
+  font-size: .82rem;
+  color: var(--fg-muted);
+}
+
+.ref-phone {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .8rem;
+  color: var(--fg-muted);
+  margin-top: .4rem;
+}
+
+@media (max-width: 768px) {
+  .ref-grid { grid-template-columns: 1fr; }
+}

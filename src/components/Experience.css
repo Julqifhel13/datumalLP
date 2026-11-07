@@ -1,0 +1,141 @@
+.exp-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.exp-card {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--surface-mid);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.exp-card.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.exp-card:hover {
+  box-shadow: 0 8px 36px rgba(0, 0, 0, .14);
+  border-color: var(--gold);
+}
+
+/* colored left accent column */
+.exp-card-side {
+  background: var(--accent, #022448);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 1.5rem;
+}
+
+.exp-card-icon {
+  width: 30px;
+  height: 30px;
+  color: rgba(255, 255, 255, .9);
+  flex-shrink: 0;
+}
+
+.exp-card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* body */
+.exp-card-body {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .875rem;
+}
+
+.exp-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.exp-card-role {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 0 0 .25rem;
+  line-height: 1.3;
+}
+
+.exp-card-org {
+  font-size: .84rem;
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+/* type badge */
+.exp-card-type {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: .25rem .7rem;
+  border-radius: 999px;
+  background: rgba(200, 158, 42, .14);
+  color: #c89e2a;
+  border: 1px solid rgba(200, 158, 42, .45);
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+/* bullet list */
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.exp-bullets li {
+  font-size: .88rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.exp-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* mobile: hide icon column, show left border */
+@media (max-width: 540px) {
+  .exp-card {
+    grid-template-columns: 1fr;
+    border-left: 5px solid var(--accent, #022448);
+  }
+  .exp-card-side {
+    display: none;
+  }
+  .exp-card-body {
+    padding: 1.25rem;
+  }
+}

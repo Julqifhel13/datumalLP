@@ -1,0 +1,120 @@
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+/* pull quote */
+.about-quote {
+  position: relative;
+  padding: 2rem 2rem 1.75rem 2.25rem;
+  background: var(--surface-mid);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.about-quote-mark {
+  position: absolute;
+  top: -16px;
+  left: 1.5rem;
+  color: var(--gold);
+  opacity: .9;
+  line-height: 1;
+}
+
+.about-quote-text {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--fg);
+  font-style: italic;
+  margin-top: .75rem;
+}
+
+/* highlight strips */
+.about-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .75rem;
+}
+
+.about-hl {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--navy);
+  color: rgba(255,255,255,.85);
+}
+
+.about-hl-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-hl-icon svg { width: 18px; height: 18px; }
+
+.about-hl-name {
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.about-hl-sub {
+  font-size: .7rem;
+  color: rgba(255,255,255,.68);
+  margin-top: .1rem;
+}
+
+/* facts grid */
+.about-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-fact {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: .75rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: .88rem;
+}
+.about-fact:first-child { border-top: 1px solid var(--rule); }
+
+.about-fact-label {
+  font-weight: 600;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  padding-top: .05rem;
+}
+
+.about-fact-value {
+  color: var(--fg);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-highlights {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-highlights { grid-template-columns: 1fr; }
+}

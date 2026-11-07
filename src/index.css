@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary:      #022448;
+  --primary-mid:  #1e3a5f;
+  --primary-dim:  #2d486d;
+  --on-primary:   #ffffff;
+  --primary-tint: rgba(2,36,72,.07);
+
+  --secondary:    #515f74;
+  --gold:         #c89e2a;
+  --gold-bg:      rgba(200,158,42,.12);
+  --gold-border:  rgba(200,158,42,.35);
+  --gold-text:    #7a5c00;
+
+  --bg:           #f8f9fa;
+  --surface:      #ffffff;
+  --surface-low:  #f3f4f5;
+  --surface-mid:  #edeeef;
+
+  --fg:           #191c1d;
+  --fg-muted:     #43474e;
+  --fg-subtle:    #74777f;
+
+  --rule:         #c4c6cf;
+  --rule-light:   #e7e8e9;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 14px;
+
+  --shadow-sm:   0 1px 3px rgba(30,58,95,.08);
+  --shadow-md:   0 4px 16px rgba(30,58,95,.10);
+  --shadow-lg:   0 8px 32px rgba(30,58,95,.14);
+  --shadow-gold: 0 4px 20px rgba(200,158,42,.25);
+
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+
+  /* aliases used by portfolio components */
+  --navy:         #022448;
+  --surface-base: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary:      #adc8f5;
+    --primary-mid:  #8aa4cf;
+    --primary-dim:  #6d8bb8;
+    --on-primary:   #001c3b;
+    --primary-tint: rgba(173,200,245,.08);
+
+    --secondary:    #b9c7df;
+    --gold:         #eec14b;
+    --gold-bg:      rgba(238,193,75,.10);
+    --gold-border:  rgba(238,193,75,.30);
+    --gold-text:    #eec14b;
+
+    --bg:           #191c1d;
+    --surface:      #1f2223;
+    --surface-low:  #242829;
+    --surface-mid:  #2a2f30;
+
+    --fg:           #e1e3e4;
+    --fg-muted:     #c4c6cf;
+    --fg-subtle:    #8e9199;
+
+    --rule:         #3a3f41;
+    --rule-light:   #2e3132;
+
+    --shadow-sm:  0 1px 3px rgba(0,0,0,.3);
+    --shadow-md:  0 4px 16px rgba(0,0,0,.35);
+    --shadow-lg:  0 8px 32px rgba(0,0,0,.4);
+
+    --navy:         #022448;
+    --surface-base: #1f2223;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { font-family: var(--font-sans); }
+
+/* ── Shared badges ── */
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  line-height: 18px;
+}
+.badge-navy {
+  background: var(--primary-tint);
+  color: var(--primary);
+  border: 1px solid rgba(2,36,72,.18);
+}
+.badge-gold {
+  background: rgba(200,158,42,.14);
+  color: #c89e2a;
+  border: 1px solid rgba(200,158,42,.45);
+}
+
+/* ── Shared buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #c89e2a;
+  color: #022448;
+  border: 2px solid #c89e2a;
+  border-radius: var(--radius-sm);
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.btn-primary:hover {
+  background: #d9b040;
+  border-color: #d9b040;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200,158,42,.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #022448;
+  border: 2px solid #022448;
+  border-radius: var(--radius-sm);
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-outline:hover {
+  background: #022448;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Section shell ── */
+.section {
+  padding: 80px 0;
+}
+.section--alt {
+  background: var(--surface-low);
+}
+.section--dark {
+  background: #022448;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section heading ── */
+.sec-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #c89e2a;
+  margin-bottom: 10px;
+}
+.sec-heading {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 14px;
+  text-wrap: balance;
+  line-height: 1.2;
+}
+.sec-sub {
+  font-size: 1rem;
+  color: var(--fg-muted);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Section headings appear immediately — only the eyebrow uses reveal animation */
+.sec-heading.reveal { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
