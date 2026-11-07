@@ -290,8 +290,11 @@
     grid-template-columns: 1fr;
   }
   .edu-feat-photo {
-    height: 240px;
+    height: 380px;
     min-height: unset;
+  }
+  .edu-feat-photo img {
+    object-position: center 8%;
   }
   .edu-feat-body {
     padding: 1.5rem;
